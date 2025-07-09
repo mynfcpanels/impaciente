@@ -326,10 +326,10 @@
 
   <section class="contact" id="contacto">
     <h3>Contáctanos</h3>
-    <form id="contact-form">
-      <input type="text" placeholder="Nombre" required>
-      <input type="email" placeholder="Correo Electrónico" required>
-      <textarea rows="5" placeholder="Mensaje" required></textarea>
+    <form action="https://formspree.io/f/xblyvvdn" method="POST">
+      <input type="text" name="nombre" placeholder="Nombre" required>
+      <input type="email" name="email" placeholder="Correo Electrónico" required>
+      <textarea name="mensaje" rows="5" placeholder="Mensaje" required></textarea>
       <button type="submit">Enviar Mensaje</button>
     </form>
     <p>O envíanos un correo a <strong>mynfcpanels@gmail.com</strong></p>
@@ -338,37 +338,5 @@
   <footer>
     &copy; 2025 My NFC Panels. Todos los derechos reservados.
   </footer>
-
-  <script>
-  document.getElementById('contact-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-
-    const form = e.target;
-    const data = {
-      nombre: form.querySelector('input[type="text"]').value,
-      email: form.querySelector('input[type="email"]').value,
-      mensaje: form.querySelector('textarea').value
-    };
-
-    fetch("https://formspree.io/f/xyzabcde", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(data)
-    })
-    .then(response => {
-      if (response.ok) {
-        alert("Mensaje enviado correctamente.");
-        form.reset();
-      } else {
-        alert("Hubo un error al enviar el mensaje.");
-      }
-    })
-    .catch(error => {
-      alert("Error de red: " + error.message);
-    });
-  });
-</script>
 </body>
 </html>
